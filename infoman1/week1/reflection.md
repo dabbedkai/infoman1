@@ -1,0 +1,5 @@
+# Lab 1 Reflection
+
+Setting up MySQL firsthand really highlighted why databases completely outmatch traditional file-based systems. If we relied on plain text files or spreadsheets for student records, we would quickly run into duplicated data, mismatched entries, and zero control over concurrent edits. MySQL fixes this by centralizing data, enforcing integrity rules, and allowing multi-user access without corrupting records. It cleanly separates physical data storage from application logic, making management far more secure and reliable.
+
+Once this database starts handling real student data, the first DBA responsibility that becomes essential is Security and Authorization Management. Student records hold personal details and academic marks, making protection a top priority from day one. The DBA must immediately create restricted user accounts and apply the principle of least privilege—ensuring individuals only access what their specific role requires. Establishing tight access controls upfront prevents unauthorized views, accidental data loss, and privacy breaches before the system ever goes live.
