@@ -20,7 +20,8 @@
 
 
 ## Task 3 — Build the Logical ERD
-_ERD here_
+
+![Conceptual ERD](erd-diagram.png)
 
 ## Task 4 — Translate to Relational Schema Notation
 
