@@ -29,6 +29,16 @@ _ERD here_
 `pets`(`pet_id`, `name`, `species`, `age`, `owner_id`*)  
 *Note: `owner_id` references `owners(owner_id)`*
 
+`veterinarians`(`vet_id`, `first_name`, `last_name`, `specialization`)
+
+`appointments`(`appointment_id`, `appointment_date`, `reason_for_visit`, `pet_id`*, `vet_id`*)  
+*Note: `pet_id` references `pets(pet_id)`*  
+*Note: `vet_id` references `veterinarians(vet_id)`*
+
+`vaccination_records`(`pet_id`*, `vaccine_name`, `vaccination_date`)  
+*Note: `pet_id` references `pets(pet_id)`*  
+*Note: Primary Key is composite (`pet_id`, `vaccine_name`, `vaccination_date`)*
+
 ## Task 5 — Key Justification & Schema Validation
 _Answer here_
 
