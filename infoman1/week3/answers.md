@@ -10,7 +10,13 @@
 | Derived Attributes | None | No derived attributes are explicitly specified in the scenario. |
 
 ## Task 2 — Specify Participation Constraints
-_Answer here_
+
+| Relationship (verb phrase) | Between | Cardinality & Participation | Checked both directions? |
+|---|---|---|---|
+| owns | Owner ↔ Pet | 1:N (Optional Many `O<` at Pet, Mandatory One `||` at Owner) | Yes — An owner is not required to have pets on file, but every pet must belong to exactly one owner. |
+| schedules | Pet ↔ Appointment | 1:N (Optional Many `O<` at Appointment, Mandatory One `||` at Pet) | Yes — A pet can exist before having appointments or have multiple appointments over time, but every appointment must specify exactly one pet. |
+| conducts | Veterinarian ↔ Appointment | 1:N (Optional Many `O<` at Appointment, Mandatory One `||` at Veterinarian) | Yes — A veterinarian can conduct multiple appointments or none at all, but every appointment must specify exactly one veterinarian. |
+| receives | Pet ↔ Vaccination Record | 1:N (Optional Many `O<` at Vaccination Record, Mandatory One `||` at Pet) | Yes — A pet can have zero, one, or several vaccination records, and each vaccination record only exists in relation to a specific pet. |
 
 
 ## Task 3 — Build the Logical ERD
