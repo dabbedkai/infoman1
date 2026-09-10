@@ -40,11 +40,26 @@ _ERD here_
 *Note: Primary Key is composite (`pet_id`, `vaccine_name`, `vaccination_date`)*
 
 ## Task 5 — Key Justification & Schema Validation
-_Answer here_
+
+### Primary Key Justifications
+- **`owners` & `pets` (Surrogate Keys):** Auto-incrementing integer IDs (`owner_id`, `pet_id`) were chosen as surrogate primary keys. Natural attributes like `phone_number` or pet `name` are mutable or non-unique, making surrogate keys essential for referential integrity.
+- **`vaccination_records` (Composite Key):** A composite primary key (`pet_id`, `vaccine_name`, `vaccination_date`) was selected because `Vaccination Record` is a weak entity. This uniquely identifies vaccination events per pet without introducing an unnecessary surrogate ID.
+
+### Schema Validation
+
+| Scenario Requirement Statement | Schema Representation | Status |
+|---|---|---|
+| "A pet owner, identified by an owner ID, full name (first name, last name), and phone number..." | `owners(owner_id, first_name, last_name, phone_number)` | Verified |
+| "...not required to have any pets, but every pet must belong to exactly one owner." | `pets(owner_id*)` FK references `owners(owner_id)` | Verified |
+| "A pet has a pet ID, name, species, and age." | `pets(pet_id, name, species, age)` | Verified |
+| "Every appointment tracks an appointment ID, date, and reason for visit..." | `appointments(appointment_id, appointment_date, reason_for_visit)` | Verified |
+| "...must specify exactly one veterinarian and exactly one pet..." | `appointments(pet_id*, vet_id*)` non-null foreign keys | Verified |
+| "A veterinarian, identified by vet ID, full name, and specialization..." | `veterinarians(vet_id, first_name, last_name, specialization)` | Verified |
+| "...tracks each pet's vaccination history (vaccine name, vaccination date)..." | `vaccination_records(pet_id*, vaccine_name, vaccination_date)` composite PK | Verified |
 
 ## Self-Check
 
-- [ ] All tasks committed with individual, meaningful commit messages
-- [ ] All files placed inside `week3/`
+- [X] All tasks committed with individual, meaningful commit messages
+- [X] All files placed inside `week3/`
 - [ ] This file completed `answers.md`
 - [ ] Repository link pasted into Moodle (no files uploaded)
