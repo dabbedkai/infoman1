@@ -23,8 +23,11 @@
 _ERD here_
 
 ## Task 4 — Translate to Relational Schema Notation
-_Answer here_
 
+`owners`(`owner_id`, `first_name`, `last_name`, `phone_number`)
+
+`pets`(`pet_id`, `name`, `species`, `age`, `owner_id`*)  
+*Note: `owner_id` references `owners(owner_id)`*
 
 ## Task 5 — Key Justification & Schema Validation
 _Answer here_
