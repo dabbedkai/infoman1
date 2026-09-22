@@ -1,0 +1,64 @@
+mysql> DESCRIBE storage_location;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| location_code | varchar(20) | NO   | PRI | NULL    |       |
+| description   | varchar(255)| NO   |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+
+mysql> DESCRIBE member;
++-----------------------+--------------+------+-----+---------+----------------+
+| Field                 | Type         | Null | Key | Default | Extra          |
++-----------------------+--------------+------+-----+---------+----------------+
+| member_id             | int          | NO   | PRI | NULL    | auto_increment |
+| name                  | varchar(100) | NO   |     | NULL    |                |
+| phone_number          | varchar(20)  | NO   |     | NULL    |                |
+| membership_start_date | date         | NO   |     | NULL    |                |
++-----------------------+--------------+------+-----+---------+----------------+
+
+mysql> DESCRIBE certification;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| cert_id   | int          | NO   | PRI | NULL    | auto_increment |
+| cert_name | varchar(100) | NO   |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+
+mysql> DESCRIBE tool;
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| tool_id       | int          | NO   | PRI | NULL    | auto_increment |
+| name          | varchar(100) | NO   |     | NULL    |                |
+| category      | varchar(50)  | NO   |     | NULL    |                |
+| purchase_date | date         | NO   |     | NULL    |                |
+| location_code | varchar(20)  | NO   | MUL | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+
+mysql> DESCRIBE borrowing;
++-------------+------+------+-----+---------+----------------+
+| Field       | Type | Null | Key | Default | Extra          |
++-------------+------+------+-----+---------+----------------+
+| borrow_id   | int  | NO   | PRI | NULL    | auto_increment |
+| member_id   | int  | NO   | MUL | NULL    |                |
+| tool_id     | int  | NO   | MUL | NULL    |                |
+| borrow_date | date | NO   |     | NULL    |                |
+| return_date | date | YES  |     | NULL    |                |
++-------------+------+------+-----+---------+----------------+
+
+mysql> DESCRIBE member_certification;
++-----------------+------+------+-----+---------+-------+
+| Field           | Type | Null | Key | Default | Extra |
++-----------------+------+------+-----+---------+-------+
+| member_id       | int  | NO   | PRI | NULL    |       |
+| cert_id         | int  | NO   | PRI | NULL    |       |
+| completion_date | date | NO   |     | NULL    |       |
++-----------------+------+------+-----+---------+-------+
+
+mysql> DESCRIBE tool_certification;
++---------+------+------+-----+---------+-------+
+| Field   | Type | Null | Key | Default | Extra |
++---------+------+------+-----+---------+-------+
+| tool_id | int  | NO   | PRI | NULL    |       |
+| cert_id | int  | NO   | PRI | NULL    |       |
++---------+------+------+-----+---------+-------+
