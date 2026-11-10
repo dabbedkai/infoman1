@@ -45,4 +45,4 @@ WHERE appointment_date >= '2026-04-12 00:00:00';
 SELECT name, species, age FROM pets WHERE species = 'Dog';
 
 -- Query 4B (Deliberately Broken)
-SELECT name, species, age FROM pets WHERE species = Dog;
+SELECT name, species, age FROM pets WHERE species = 'Dog';
