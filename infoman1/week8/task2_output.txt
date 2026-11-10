@@ -1,0 +1,35 @@
+MariaDB [infoman1_week8]> SELECT COUNT(*) AS total_employees, COUNT(commission) AS employees_with_commission 
+    -> FROM employee;
++-----------------+---------------------------+
+| total_employees | employees_with_commission |
++-----------------+---------------------------+
+|             500 |                       352 |
++-----------------+---------------------------+
+1 row in set (0.001 sec)
+
+MariaDB [infoman1_week8]> SELECT SUM(salary) AS total_payroll, AVG(salary) AS average_salary 
+    -> FROM employee;
++---------------+----------------+
+| total_payroll | average_salary |
++---------------+----------------+
+|   33282250.00 |   66564.500000 |
++---------------+----------------+
+1 row in set (0.014 sec)
+
+MariaDB [infoman1_week8]> SELECT MIN(hire_date) AS earliest_hire_date, MAX(hire_date) AS latest_hire_date 
+    -> FROM employee;
++--------------------+------------------+
+| earliest_hire_date | latest_hire_date |
++--------------------+------------------+
+| 2015-01-03         | 2026-09-14       |
++--------------------+------------------+
+1 row in set (0.004 sec)
+
+MariaDB [infoman1_week8]> SELECT SUM(salary + COALESCE(commission, 0)) AS total_compensation 
+    -> FROM employee;
++--------------------+
+| total_compensation |
++--------------------+
+|        35387750.00 |
++--------------------+
+1 row in set (0.013 sec)

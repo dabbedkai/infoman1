@@ -1,0 +1,28 @@
+MariaDB [infoman1_week8]> SELECT department, AVG(salary) AS avg_salary 
+    -> FROM employee 
+    -> GROUP BY department 
+    -> HAVING AVG(salary) > 60000;
++-------------+--------------+
+| department  | avg_salary   |
++-------------+--------------+
+| Engineering | 75160.000000 |
+| Finance     | 79513.043478 |
+| HR          | 62610.000000 |
+| Sales       | 71799.652778 |
++-------------+--------------+
+4 rows in set (0.016 sec)
+
+MariaDB [infoman1_week8]> SELECT department, COUNT(*) AS active_headcount 
+    -> FROM employee 
+    -> WHERE status = 'Active' 
+    -> GROUP BY department 
+    -> HAVING COUNT(*) > 50;
++-------------+------------------+
+| department  | active_headcount |
++-------------+------------------+
+| Engineering |              104 |
+| Finance     |               52 |
+| Sales       |              116 |
+| Support     |               99 |
++-------------+------------------+
+4 rows in set (0.002 sec)
