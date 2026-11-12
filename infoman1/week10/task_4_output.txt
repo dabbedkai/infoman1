@@ -1,0 +1,22 @@
+=== TASK 4: Constraints & Table Evolution Evidence ===
+
+-- Schema Evolution: ALTER TABLE products ADD COLUMN contact_number VARCHAR(20);
+Query OK, 0 rows affected (0.012 sec)
+
+-- Enforcing Rules:
+1. ALTER TABLE products MODIFY product_name VARCHAR(100) NOT NULL;
+2. ALTER TABLE products ADD CONSTRAINT unique_sku UNIQUE (sku);
+3. ALTER TABLE products ADD CONSTRAINT check_positive_price CHECK (price > 0);
+
+-- Rejection Tests Evidence:
+1. NOT NULL Failure:
+   INSERT INTO products (product_name, sku, price) VALUES (NULL, 'FAIL-01', 10.00);
+   --> ERROR 1048 (23000): Column 'product_name' cannot be null
+
+2. UNIQUE Failure:
+   INSERT INTO products (product_name, sku, price) VALUES ('Book', 'NB-001', 20.00);
+   --> ERROR 1062 (23000): Duplicate entry 'NB-001' for key 'products.unique_sku'
+
+3. CHECK Failure:
+   INSERT INTO products (product_name, sku, price) VALUES ('Pen', 'PEN-09', -5.00);
+   --> ERROR 3819 (HY000): Check constraint 'check_positive_price' is violated.

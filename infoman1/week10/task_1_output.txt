@@ -1,0 +1,18 @@
+-- Insert 1: Scientific Calculator
++------------+-----------------------+--------------+--------+----------------+--------+
+| product_id | product_name          | sku          | price  | stock_quantity | status |
++------------+-----------------------+--------------+--------+----------------+--------+
+|          6 | Scientific Calculator | CALC-SCI-001 | 850.00 |             20 | Active |
++------------+-----------------------+--------------+--------+----------------+--------+
+1 row in set (0.001 sec)
+
+-- Insert 2: Compass
++------------+--------------+---------+--------+----------------+--------+
+| product_id | product_name | sku     | price  | stock_quantity | status |
++------------+--------------+---------+--------+----------------+--------+
+|          7 | Compass      | CMP-001 | 120.00 |             50 | Active |
++------------+--------------+---------+--------+----------------+--------+
+1 row in set (0.000 sec)
+
+-- Rejected Insert Test (Duplicate SKU after UNIQUE constraint added):
+ERROR 1062 (23000): Duplicate entry 'CALC-SCI-001' for key 'products.unique_sku'

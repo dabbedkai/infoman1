@@ -1,0 +1,30 @@
+-- 2.1 UPDATE (Scientific Calculator Price Adjustment)
+-- Preview:
++------------+-----------------------+--------+
+| product_id | product_name          | price  |
++------------+-----------------------+--------+
+|          6 | Scientific Calculator | 850.00 |
++------------+-----------------------+--------+
+
+-- Execute & Verify:
+Query OK, 1 row affected (0.001 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++------------+-----------------------+--------+
+| product_id | product_name          | price  |
++------------+-----------------------+--------+
+|          6 | Scientific Calculator | 875.00 |
++------------+-----------------------+--------+
+
+-- 2.2 DELETE (Remove Test Row: Eraser)
+-- Preview:
++------------+--------------+--------+
+| product_id | product_name | sku    |
++------------+--------------+--------+
+|          5 | Eraser       | ER-001 |
++------------+--------------+--------+
+
+-- Execute & Verify:
+Query OK, 1 row affected (0.001 sec)
+
+Empty set (0.000 sec) -- Confirms row product_id = 5 has been safely removed
